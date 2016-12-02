@@ -1,0 +1,19 @@
+
+<html>
+<head>
+	<title>Javascript Advanced</title>
+	<script>
+function each(arr, callback) {
+  // loop through the array
+  for(var i = 0; i < arr.length; i++) {
+    // we invoke callback (we don't know and don't care what it is yet! we just assume it is a function) and pass it arr[i]
+    callback(arr[i]) 
+  }
+}
+// call the each function and pass in the array and the function to run
+each([1,2,3], function(num) { alert(num); })	</script>​
+</head>
+<body>
+
+</body>
+</head>

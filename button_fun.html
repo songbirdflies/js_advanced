@@ -1,0 +1,49 @@
+
+<html>
+	<head>
+		<title>Button Fun</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<style>
+		button {
+			background-color: blue;
+			color: white;
+			border-radius: 5px;
+			width: 100px;
+			height: 30px;
+		}
+
+		.red {
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		</style>
+	</head>
+	<body>
+		<button id="button">Click Me</button>
+		<button onclick="changeColor()">Click me</button>
+
+		<script>			
+
+
+			$(document).on('click', 'button', function(){
+				$(this).toggleClass("red");
+			});
+
+			$("button").hover(function(){
+				$(this).addClass("green")
+			},
+			function(){ $(this).removeClass("green") 
+			});
+
+			function changeColor() {
+				
+			}
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>Dojo Query</title>
+	<style>
+		.red {
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		</style>
+	<script>
+/*	// Make sure you wrap your code in an immediate function
+	$Dojo("someButton").click(function() { console.log("The button was clicked!") })
+	$Dojo("someOtherButton").hover(function() { console.log("The button was clicked!") })
+*/
+	</script>
+</head>
+<body>
+	<button id="btn">Click this Button</button>
+	<button id="hoverButton">Hover for Fun</button>	
+	<a href="http://www.nicekicks.com/"><button id="kickButton">Click for Kicks</button></a>
+</body>
+	<script>
+   //DOJO QUERY LIBRARY
+   function $Dojo(id){ // taking in an id parameter
+   	this.myId = document.getElementById(id); 
+      // myId = getting document by id
+   	
+   	this.click = function (callback) {
+   		this.myId.addEventListener("click", callback);
+   	};
+
+   	this.hover = function (callback1, callback2){
+   		this.myId.addEventListener("mouseover", callback1);
+   		this.myId.addEventListener("mouseout", callback2);
+   	};
+   	return this;
+   }
+
+   var elm = new $Dojo('btn');
+
+   var clickButton = function(){console.log("You clicked it!")};
+
+   elm.click(clickButton); // callback 
+
+   var elm2 = new $Dojo('hoverButton');
+
+   var mouseOver = function(){elm2.myId.style.color = "blue"; console.log("You are hovering over!")};
+
+   var mouseOut = function(){elm2.myId.removeAttribute("style"); console.log("You are hovering out!")};
+
+   elm2.hover(mouseOver, mouseOut);
+
+   var elm3 = new $Dojo('kickButton');
+
+   var kickedButton = function(){alert("You got kicked out!")};
+
+   elm3.click(kickedButton);
+
+/*
+   $Dojo('btn').click(function(){console.log("You clicked it!")});
+  
+   $Dojo('hoverButton').hover(function(){console.log("Hovering over!");}, function(){console.log("Hovering out!");});*/
+
+
+
+	</script>
+
+
+</html>

@@ -1,0 +1,28 @@
+
+<html>
+	<head>
+		<title>Hunting GitHub</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+	</head>
+	<body>
+		<button id="button">Click Me</button>
+		<p id="name"></p>
+		<script>			
+				// Note that you will have to set up your html around this. This is just the JS code that will go in your script.js file
+				// Don't forget to get JQuery!
+				// Below we are asking JQuery to send a GET Ajax request to the "https://api.github.com/users/(your user name)" URL and we<br>// are passing it a "displayName" function to run as soon as the Github API sends us a response.
+
+				$(document).on('click', 'button', function(){
+					$.get("https://api.github.com/users/songbirdflies", displayName)
+				// Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+					function displayName(data) {
+						document.getElementById("name").innerHTML = "First Name: " + data.name;
+					  console.log(data);
+					}
+
+				})
+				
+		</script>
+
+	</body>
+</html>
